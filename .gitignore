@@ -1,0 +1,5 @@
+__pycache__
+
+# results are formatted in json
+*.json
+*.jsonl
