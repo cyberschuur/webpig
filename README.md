@@ -8,6 +8,38 @@ DNS Pig is a tool designed to help you discover and identify hosts that are acce
 
 _There are many tools out there, but this one is mine_
 
+## Usage 
+
+Using '--help' will pop up the help:
+
+```
+ Usage: python -m webpig [OPTIONS] DOMAIN                                                                                                 
+                                                                                                                                          
+╭─ Arguments ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ *    domain      TEXT  [default: None] [required]                                                                                      │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─ Options ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│    --verbosity  -v      [debug|info|warning|error|critical]  Logging verbosity [default: info]                                         │
+│ *  --source             [crt.sh]                             Sources to use for subdomain enumeration. If not provided, all sources    │
+│                                                              will be used.                                                             │
+│                                                              [default: None]                                                           │
+│                                                              [required]                                                                │
+│ *  --probe              [http]                               Probes to use for subdomain probing. If not provided, all probes will be  │
+│                                                              used.                                                                     │
+│                                                              [default: None]                                                           │
+│                                                              [required]                                                                │
+│    --help                                                    Show this message and exit.                                               │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+```
+
+Everything is currently formatted in a json lines format (`.jsonl`) to stdout. To filter, parse, etc.. Use `jq`, for example:
+
+```
+python -m webpig google.com --source crt.sh --probe http | jq 'select(.reachable == true)'
+```
+
+This will keep only reachable hosts probed through `http`.
+
 ## Features
 
 - Web-based interface for easy host discovery
