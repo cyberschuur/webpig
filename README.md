@@ -1,4 +1,4 @@
-# DNS Pig 🐷
+# webpig 🐷
 
 A web-based host discovery tool that helps you sniff out hosts in your network environment.
 
@@ -20,11 +20,3 @@ DNS Pig is a tool designed to help you discover and identify hosts in a web cont
 ## Contributing
 
 Feel free to contribute! This is an open-source project, and we welcome pull requests, bug reports, and feature suggestions.
-
-## License
-
-(Coming soon - license information will be added)
-
----
-
-Made with 🐷 by security enthusiasts for security enthusiasts
