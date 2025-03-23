@@ -13,23 +13,21 @@ _There are many tools out there, but this one is mine_
 Using '--help' will pop up the help:
 
 ```
- Usage: python -m webpig [OPTIONS] DOMAIN                                                                                                 
-                                                                                                                                          
-╭─ Arguments ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ *    domain      TEXT  [default: None] [required]                                                                                      │
-╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-╭─ Options ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│    --verbosity  -v      [debug|info|warning|error|critical]  Logging verbosity [default: info]                                         │
-│ *  --source             [crt.sh]                             Sources to use for subdomain enumeration. If not provided, all sources    │
-│                                                              will be used.                                                             │
-│                                                              [default: None]                                                           │
-│                                                              [required]                                                                │
-│ *  --probe              [http]                               Probes to use for subdomain probing. If not provided, all probes will be  │
-│                                                              used.                                                                     │
-│                                                              [default: None]                                                           │
-│                                                              [required]                                                                │
-│    --help                                                    Show this message and exit.                                               │
-╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+ Usage: python -m webpig [OPTIONS] DOMAIN                                                                                                                                               
+                                                                                                                                                                                        
+╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ *    domain      TEXT  [default: None] [required]                                                                                                                                    │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ --verbosity  -v      [debug|info|warning|error|critical]  Logging verbosity [default: info]                                                                                          │
+│ --source             [crt.sh|dnsdumpster]                 Sources to use for subdomain enumeration. If not provided, all sources will be used.                                       │
+│                                                           - crt.sh: Scans crt.sh for subdomains of a given domain.                                                                   │
+│                                                           - dnsdumpster: Uses the DNSDumpster API to find subdomains of a given domain. Requires an API key to be set using the      │
+│                                                           DNSDUMPSTER_API_KEY environment variable or provided via prompt.                                                           │
+│ --probes             [http]                               Probes to use for host probing. If not provided, all probes will be used.                                                  │
+│                                                           - http: Probes a domain using simple, unsecured HTTP.                                                                      │
+│ --help                                                    Show this message and exit.                                                                                                │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
 
 Everything is currently formatted in a json lines format (`.jsonl`) to stdout. To filter, parse, etc.. Use `jq`, for example:
