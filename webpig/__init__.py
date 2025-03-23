@@ -3,8 +3,10 @@ import logging
 
 from rich.logging import RichHandler
 from rich.console import Console
+from rich.progress import Progress
 
 console = Console(stderr=True)
+progress = Progress(console=console)
 
 logging.basicConfig(
     level=logging.INFO,
