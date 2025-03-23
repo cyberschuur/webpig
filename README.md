@@ -6,11 +6,11 @@ A web-based host discovery tool that helps you sniff out web-accessible hosts.
 
 DNS Pig is a tool designed to help you discover and identify hosts that are accessible through the web. For simple research, I found myself using crt.sh and dnsdumpster quite a lot to determine which subdomains were available, but then had to manually determine which were otherwise reachable/interesting. 
 
-_There are many tools out there, but this one is mine_
+_This is my tool. There are many like it, but this one is mine._
 
 ## Usage 
 
-Using '--help' will pop up the help:
+Using `--help` will pop up the help:
 
 ```
  Usage: python -m webpig [OPTIONS] DOMAIN                                                                                                                                               
