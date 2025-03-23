@@ -2,8 +2,8 @@
 
 from enum import Enum
 
-from .base import ProbeStatus, Probe
-from .http import HttpProbe
+from webpig.probe.base import ProbeStatus, Probe
+from webpig.probe.http import HttpProbe
 
 
 class ValidProbe(str, Enum):

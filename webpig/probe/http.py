@@ -2,7 +2,7 @@ from typing import Any
 
 from requests import request, RequestException
 
-from .base import ProbeStatus, AllowedMethod, Probe
+from webpig.probe.base import ProbeStatus, AllowedMethod, Probe
 
 
 class HttpProbe(Probe):

@@ -1,7 +1,10 @@
 __pycache__
 
+build/
+
 # results are formatted in json
 *.json
 *.jsonl
+*.pyz
 
 .env

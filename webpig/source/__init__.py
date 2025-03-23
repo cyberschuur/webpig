@@ -2,8 +2,8 @@ from enum import Enum
 
 from webpig.source import dnsdumpster
 
-from .import crtsh
-from .base import Source
+from webpig.source import crtsh
+from webpig.source.base import Source
 
 
 class ValidSource(str, Enum):

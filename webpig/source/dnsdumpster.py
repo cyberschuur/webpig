@@ -6,8 +6,8 @@ from rich.prompt import Prompt
 
 import requests
 
-from .. import console, progress
-from .base import Source
+from webpig import console, progress
+from webpig.source.base import Source
 
 
 logger = logging.getLogger()

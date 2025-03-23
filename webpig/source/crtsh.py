@@ -4,7 +4,7 @@ from typing import Generator, cast
 
 import requests
 
-from .base import Source
+from webpig.source.base import Source
 
 
 logger = logging.getLogger()
