@@ -11,6 +11,10 @@ logger = logging.getLogger()
 
 
 class CrtSh(Source):
+    """
+    Scans crt.sh for subdomains of a given domain.
+    """
+
     @staticmethod
     def name() -> str:
         return "crt.sh"

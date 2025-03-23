@@ -16,4 +16,11 @@ all_sources: dict[ValidSource, type[Source]] = {
     ValidSource.DNSDUMPSTER: dnsdumpster.DnsDumpster,
 }
 
+
+def get_source_help():
+    return "\n\n".join([
+        f" - {source_name.value}:{source.__doc__}" if source.__doc__ else ""
+        for source_name, source in all_sources.items()]).replace(" "*4, " ")
+
+
 __all__ = ["ValidSource", "all_sources"]

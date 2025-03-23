@@ -3,8 +3,8 @@ import logging
 import typer
 
 from . import LoggingLevel, console, progress
-from .probe import ValidProbe, ProbeStatus, all_probes
-from .source import ValidSource, all_sources
+from .probe import ValidProbe, ProbeStatus, all_probes, get_probe_help
+from .source import ValidSource, all_sources, get_source_help
 
 logger = logging.getLogger()
 
@@ -74,10 +74,10 @@ def main(
         help="Logging verbosity"
     ),
     source: list[ValidSource] = typer.Option(
-        [], help="Sources to use for subdomain enumeration. If not provided, all sources will be used.",
+        [], help=f"Sources to use for subdomain enumeration. If not provided, all sources will be used.\n\n{get_source_help()}",
     ),
     probes: list[ValidProbe] = typer.Option(
-        [], help="Probes to use for host probing. If not provided, all probes will be used."
+        [], help=f"Probes to use for host probing. If not provided, all probes will be used.\n\n{get_probe_help()}"
     ),
 ):
     progress.start()

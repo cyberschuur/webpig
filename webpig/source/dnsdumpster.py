@@ -14,10 +14,15 @@ logger = logging.getLogger()
 
 
 class DnsDumpster(Source):
+    """
+    Uses the DNSDumpster API to find subdomains of a given domain. Requires an
+    API key to be set using the DNSDUMPSTER_API_KEY environment variable or
+    provided via prompt.
+    """
+
     @staticmethod
     def _get_api_key() -> Optional[str]:
-        # api_key = os.getenv("DNSDUMPSTER_API_KEY")
-        api_key = None
+        api_key = os.getenv("DNSDUMPSTER_API_KEY")
 
         if not api_key:
             progress.stop()

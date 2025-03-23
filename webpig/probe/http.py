@@ -6,6 +6,9 @@ from .base import ProbeStatus, AllowedMethod, Probe
 
 
 class HttpProbe(Probe):
+    """
+    Probes a domain using simple, unsecured HTTP.
+    """
 
     @staticmethod
     def name() -> str:
