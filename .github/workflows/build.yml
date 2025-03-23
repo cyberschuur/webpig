@@ -1,9 +1,8 @@
-name: Build and Release Webpig
+name: Build and Upload Release Asset
 
 on:
-  push:
-    tags:
-      - 'v*'  # triggers on version tags
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -21,23 +20,12 @@ jobs:
       - name: Run build script
         run: ./build.sh
 
-      - name: Create GitHub Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          upload_url: ${{ github.event.release.upload_url }}
           asset_path: ./webpig.pyz
           asset_name: webpig.pyz
           asset_content_type: application/octet-stream
